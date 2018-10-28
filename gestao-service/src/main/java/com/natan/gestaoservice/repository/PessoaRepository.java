@@ -21,6 +21,6 @@ public interface PessoaRepository extends Repository<Pessoa, Long> {
 	
 	List<Pessoa> findAll();
 
-	Pessoa findById(Long codigo);
+	Pessoa findById(Integer codigo);
 
 }

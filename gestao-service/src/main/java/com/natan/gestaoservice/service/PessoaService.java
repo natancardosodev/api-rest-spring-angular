@@ -28,7 +28,7 @@ public class PessoaService {
 	@Autowired
 	private PessoaRepository repository;
 	
-	@RequestMapping(value="/pessoa", method=RequestMethod.POST, 
+	@RequestMapping(value="/pessoas", method=RequestMethod.POST, 
 			consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, 
 			produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody Response salvar(@RequestBody Pessoa pessoa) {
@@ -42,7 +42,7 @@ public class PessoaService {
 		}
 	}
 	
-	@RequestMapping(value="/pessoa", method=RequestMethod.PUT, 
+	@RequestMapping(value="/pessoas", method=RequestMethod.PUT, 
 			consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, 
 			produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody Response atualizar(@RequestBody Pessoa pessoa) {
@@ -56,22 +56,22 @@ public class PessoaService {
 		}
 	}
 	
-	@RequestMapping(value="/pessoa", method = RequestMethod.GET, 
+	@RequestMapping(value="/pessoas", method = RequestMethod.GET, 
 			produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody List<Pessoa> consultar(){
 		
 		return this.repository.findAll();
 	}
 	
-	@RequestMapping(value="/pessoa/{codigo}", method = RequestMethod.GET, 
+	@RequestMapping(value="/pessoas/{codigo}", method = RequestMethod.GET, 
 			produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody Pessoa buscar(@PathVariable("codigo") Long codigo){
+	public @ResponseBody Pessoa buscar(@PathVariable("codigo") Integer codigo){
 		
 		return (Pessoa) this.repository.findById(codigo);
 	}
 	
-	@RequestMapping(value="/pessoa/{codigo}", method = RequestMethod.DELETE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody Response excluir(@PathVariable("codigo") Long codigo){
+	@RequestMapping(value="/pessoas/{codigo}", method = RequestMethod.DELETE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public @ResponseBody Response excluir(@PathVariable("codigo") Integer codigo){
 		
 		Pessoa pessoaModel = (Pessoa) repository.findById(codigo);
 		
